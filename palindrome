@@ -1,0 +1,94 @@
+** start of html **
+
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build a Palindrome Checker</title>
+    <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+      <main>
+    <h1>Palindrome Checker</h1>
+    <div class="container">
+      <h2>Enter a text to check for palindome: </h2>
+        <input id="text-input" placeholder="Enter a text">
+<button id="check-btn">Check</button>
+<p id="result"></p>
+</div>
+        </main>
+      <script src="script.js"></script>
+      </body>
+  </html>
+
+** end of html **
+
+** start of js **
+
+document.getElementById("check-btn").addEventListener("click", function() {
+    let inputText = document.getElementById("text-input").value;
+    let resultElement = document.getElementById("result");
+
+    if (!inputText) {
+        alert("Please input a value.");
+        return;
+    }
+    let processedText = inputText.toLowerCase().replace(/[^a-z0-9]/gi, '');
+    let reversedText = processedText.split('').reverse().join('');
+
+    if (processedText === reversedText) {
+        resultElement.textContent = `${inputText} is a palindrome.`;
+    } else {
+        resultElement.textContent = `${inputText} is not a palindrome.`;
+    }
+});
+
+** end of js **
+
+** start of css **
+
+body {
+  font-family: Garamond;
+  background-color: rgb(0, 73, 83);
+  text-align: center;
+  margin: 50px;
+}
+h1 {
+  color: #d3d3d3;
+}
+.container {
+    background: #01735c;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+}
+input {
+    padding: 10px;
+    width: 80%;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #4A5D23;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #177245;
+}
+p {
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+** end of css **
+
